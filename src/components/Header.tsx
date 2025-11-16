@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingBag } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { Badge } from "@/components/ui/badge";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { itemCount, setIsOpen } = useCart();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -66,6 +69,23 @@ export const Header = () => {
               className="gradient-coffee shadow-coffee text-white hover:opacity-90 transition-opacity"
             >
               Заказать
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="relative"
+              onClick={() => setIsOpen(true)}
+              aria-label="Open cart"
+            >
+              <ShoppingBag className="h-5 w-5" />
+              {itemCount > 0 && (
+                <Badge 
+                  variant="default" 
+                  className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs"
+                >
+                  {itemCount}
+                </Badge>
+              )}
             </Button>
             <Button
               variant="ghost"
