@@ -1,4 +1,11 @@
+import { Button } from "@/components/ui/button";
+import { ShoppingBag } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "sonner";
+
 export const Menu = () => {
+  const { addItem } = useCart();
+
   const menuItems = [
     { id: 1, name: "Латте", description: "Кремовая текстура, мягкий вкус", price: "220 сом", icon: "L" },
     { id: 2, name: "Капучино", description: "Пенка и насыщенный эспрессо", price: "200 сом", icon: "C" },
@@ -30,18 +37,37 @@ export const Menu = () => {
           {menuItems.map((item) => (
             <div
               key={item.id}
-              className="glass-effect rounded-2xl p-4 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
+              className="glass-effect rounded-2xl p-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="w-20 h-20 rounded-xl gradient-warm flex items-center justify-center font-bold text-2xl text-primary flex-shrink-0">
-                {item.icon}
+              <div className="flex items-center gap-4">
+                <div className="w-20 h-20 rounded-xl gradient-warm flex items-center justify-center font-bold text-2xl text-primary flex-shrink-0">
+                  {item.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-bold text-lg">{item.name}</h3>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <div className="font-bold text-primary mt-1">
+                    {item.price}
+                  </div>
+                </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-bold text-lg">{item.name}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
-              </div>
-              <div className="font-bold text-primary whitespace-nowrap">
-                {item.price}
-              </div>
+              <Button 
+                onClick={() => {
+                  addItem({
+                    id: item.id,
+                    name: item.name,
+                    description: item.description,
+                    price: parseInt(item.price.replace(' сом', '')),
+                    icon: item.icon
+                  });
+                  toast.success(`${item.name} добавлен в корзину`);
+                }}
+                className="w-full"
+                size="sm"
+              >
+                <ShoppingBag className="w-4 h-4 mr-2" />
+                Добавить в корзину
+              </Button>
             </div>
           ))}
         </div>
