@@ -34,15 +34,67 @@ export const Menu = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {menuItems.map((item) => (
+        {menuItems.map((item, index) => (
             <div
               key={item.id}
               className="glass-effect rounded-2xl p-4 flex flex-col gap-3 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-4">
-                <div className="w-20 h-20 rounded-xl gradient-warm flex items-center justify-center font-bold text-2xl text-primary flex-shrink-0">
-                  {item.icon}
-                </div>
+                {index === 0 ? (
+                  <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                    <img
+                      src="https://i.pinimg.com/1200x/51/29/c4/5129c4b309f353e2ed9abd423aadc9fb.jpg"
+                      alt="Кофейная подача"
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : index === 1 ? (
+                  <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                    <img
+                      src="https://i.pinimg.com/1200x/5b/10/c6/5b10c6ed8d935b4cdbc531ba6a5cbbc7.jpg"
+                      alt="Десерт с латте"
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : index === 2 ? (
+                  <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                    <img
+                      src="https://i.pinimg.com/736x/e4/9d/4c/e49d4c5848711a1030d85e17b13dbd7b.jpg"
+                      alt="Эспрессо и зерна"
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : index === 3 ? (
+                  <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                    <img
+                      src="https://i.pinimg.com/736x/05/f0/36/05f036f4a64b10ade8a051c81c2747c9.jpg"
+                      alt="Матча латте"
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : index === 4 ? (
+                  <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                    <img
+                      src="https://i.pinimg.com/1200x/16/b2/9b/16b29b8cdb039436089ce0f52264a356.jpg"
+                      alt="Айс-латте"
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                    <img
+                      src="https://i.pinimg.com/736x/15/51/7b/15517b7ec5f50d84530dc26e023e0b5e.jpg"
+                      alt="Чай"
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-lg">{item.name}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>

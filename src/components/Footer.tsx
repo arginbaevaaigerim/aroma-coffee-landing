@@ -5,8 +5,6 @@ export const Footer = () => {
         <div className="flex flex-wrap justify-between items-center gap-4 text-sm text-muted-foreground">
           <div>© 2025 Aroma. Все права защищены.</div>
           <div className="flex gap-4">
-            <span>Разработка — Lovable</span>
-            <span>·</span>
             <button className="hover:text-foreground transition-colors">
               Политика конфиденциальности
             </button>

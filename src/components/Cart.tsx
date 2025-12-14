@@ -38,8 +38,24 @@ export const Cart = () => {
                     key={item.id}
                     className="glass-effect rounded-xl p-4 flex items-center gap-4"
                   >
-                    <div className="w-16 h-16 rounded-lg gradient-warm flex items-center justify-center font-bold text-xl text-primary flex-shrink-0">
-                      {item.icon}
+                    <div className="w-20 h-20 rounded-xl gradient-warm flex items-center justify-center font-bold text-2xl text-primary flex-shrink-0 overflow-hidden">
+                      {item.icon === 'T' ? (
+                        <img
+                          src="https://i.pinimg.com/736x/15/51/7b/15517b7ec5f50d84530dc26e023e0b5e.jpg"
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      ) : item.icon === 'I' ? (
+                        <img
+                          src="https://i.pinimg.com/1200x/16/b2/9b/16b29b8cdb039436089ce0f52264a356.jpg"
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      ) : (
+                        item.icon
+                      )}
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="font-semibold">{item.name}</h3>

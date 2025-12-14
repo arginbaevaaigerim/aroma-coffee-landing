@@ -10,8 +10,8 @@ export const Hero = () => {
   return (
     <section className="py-16 px-4 md:px-8" id="home">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="glass-effect rounded-2xl p-8 md:p-10 shadow-coffee">
+        <div className="grid md:grid-cols-2 gap-12 items-stretch">
+          <div className="glass-effect rounded-2xl p-8 md:p-10 shadow-coffee h-full">
             <div className="text-primary font-semibold tracking-wide mb-2 text-sm uppercase">
               Новая кофейня в центре
             </div>
@@ -83,13 +83,14 @@ export const Hero = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl overflow-hidden shadow-coffee min-h-[400px] gradient-warm flex items-center justify-center">
-            <div className="relative w-56 h-56">
-              <div className="absolute inset-0 rounded-[50%_50%_40%_40%] bg-gradient-to-b from-white via-[#f0e6de] to-[#e9d7c8] shadow-xl flex items-center justify-center">
-                <div className="w-4 h-4 rounded-full bg-white/85 absolute top-[35%] left-[40%] shadow-sm" />
-              </div>
-              <div className="absolute -right-7 top-[42%] w-12 h-16 rounded-2xl bg-gradient-to-b from-[#fff7f0] to-[#f0e6de] shadow-md transform rotate-[5deg]" 
-                   style={{ boxShadow: 'inset -6px 0 8px rgba(0,0,0,0.02)' }} />
+          <div className="rounded-2xl overflow-hidden shadow-coffee bg-card h-full">
+            <div className="relative w-full h-full rounded-2xl overflow-hidden">
+              <img
+                src="https://i.pinimg.com/736x/7c/a6/db/7ca6db8dfdab8e9d6650355d16eddbd2.jpg"
+                alt="Капучино с насыщенным кремовым слоем"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

@@ -177,8 +177,24 @@ export default function Checkout() {
                 {items.map((item) => (
                   <div key={item.id} className="flex justify-between items-start gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg gradient-warm flex items-center justify-center font-bold text-sm text-primary">
-                        {item.icon}
+                      <div className="w-10 h-10 rounded-lg gradient-warm flex items-center justify-center font-bold text-sm text-primary overflow-hidden">
+                        {item.icon === 'T' ? (
+                          <img
+                            src="https://i.pinimg.com/736x/15/51/7b/15517b7ec5f50d84530dc26e023e0b5e.jpg"
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        ) : item.icon === 'I' ? (
+                          <img
+                            src="https://i.pinimg.com/1200x/16/b2/9b/16b29b8cdb039436089ce0f52264a356.jpg"
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        ) : (
+                          item.icon
+                        )}
                       </div>
                       <div>
                         <div className="font-medium">{item.name}</div>
