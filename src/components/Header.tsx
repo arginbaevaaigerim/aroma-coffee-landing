@@ -106,6 +106,10 @@ export const Header = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={() => navigate('/dashboard')}>
+                    <User className="h-4 w-4 mr-2" />
+                    Личный кабинет
+                  </DropdownMenuItem>
                   <DropdownMenuItem onClick={signOut}>
                     <LogOut className="h-4 w-4 mr-2" />
                     Выйти
